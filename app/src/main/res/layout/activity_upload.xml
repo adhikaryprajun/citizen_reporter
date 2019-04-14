@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/ivUploadImage"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="32dp"
+        android:adjustViewBounds="true"
+        android:layout_gravity="center"
+        android:src="@mipmap/ic_launcher" />
+
+    <EditText
+        android:id="@+id/etUploadDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Enter Description"/>
+
+    <!--<EditText-->
+        <!--android:id="@+id/etUploadAddress"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginStart="8dp"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--android:layout_marginBottom="8dp"-->
+        <!--android:ems="10"-->
+        <!--android:inputType="textPersonName"-->
+        <!--android:hint="Enter Address"/>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <RadioButton
+            android:id="@+id/rbtnUploadGCC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Garbage"
+            android:layout_marginRight="10dp"/>
+
+        <RadioButton
+            android:id="@+id/rbtnUploadPot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pot Holes" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnUpload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="UPLOAD" />
+</LinearLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/new_upload"
+        android:title="New Upload"
+        android:orderInCategory="100"/>
+    <item
+        android:id="@+id/user_report"
+        android:title="My Report"
+        android:orderInCategory="100"/>
+    <item
+        android:id="@+id/citizen_report"
+        android:title="Citizen Reports"
+        android:orderInCategory="100"/>
+    <item
+        android:id="@+id/user_history"
+        android:title="History"
+        android:orderInCategory="100"/>
+    <item
+        android:id="@+id/user_logout"
+        android:title="LOGOUT"
+        android:orderInCategory="100"/>
+</menu>
