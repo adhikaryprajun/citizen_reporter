@@ -66,9 +66,6 @@ public class UploadActivity extends AppCompatActivity {
         btnUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-
                 Bitmap bitmap = ((BitmapDrawable) ivUploadImage.getDrawable()).getBitmap();
 
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -93,6 +90,7 @@ public class UploadActivity extends AppCompatActivity {
                 currentLocation = location;
                 Log.d("GPS", "LAT:"+currentLocation.getLatitude());
                 Log.d("GPS", "LONG:"+currentLocation.getLongitude());
+                etUploadDescription.setText(currentLocation.getLatitude()+","+currentLocation.getLongitude());
             }
 
             @Override

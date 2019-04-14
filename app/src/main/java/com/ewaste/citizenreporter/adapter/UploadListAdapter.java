@@ -33,6 +33,8 @@ public class UploadListAdapter extends ArrayAdapter<Upload> {
     private Context context;
     private Session session;
 
+    private String uploadStatus;
+
     private int lastPosition = -1;
 
     public UploadListAdapter(Context context, Session session, ArrayList<Upload> uploads) {
@@ -67,9 +69,20 @@ public class UploadListAdapter extends ArrayAdapter<Upload> {
         lastPosition = position;
 
         Picasso.get().load("http://goodrichpestcontrol.com/ewaste/api/uploads/"+upload.getPicture()).into(vh.ivListUploadImage);
-        vh.tvListUploadTime.setText(upload.getUploadTime());
-        vh.tvListDescription.setText(upload.getDescription());
-        vh.tvListUploadStatus.setText(upload.getStatus());
+        vh.tvListUploadTime.setText("POSTED ON : " + upload.getUploadTime());
+        vh.tvListDescription.setText("LOCATION : " + upload.getDescription());
+
+        if(upload.getStatus().equals("0")) {
+            uploadStatus="OPEN";
+        } else if(upload.getStatus().equals("1")) {
+            uploadStatus="REQUESTING";
+        } else if(upload.getStatus().equals("2")) {
+            uploadStatus="PROGRESS";
+        } else if(upload.getStatus().equals("3")) {
+            uploadStatus="CLOSED";
+        }
+        vh.tvListUploadStatus.setText("STATUS : " + uploadStatus);
+
         vh.btnListAccept.setTag(position);
         if(upload.getStatus().equals("1") && upload.getUserId().equals(session.getUserId()) && UserActivity.i==R.id.user_report) {
             vh.btnListAccept.setVisibility(View.VISIBLE);
