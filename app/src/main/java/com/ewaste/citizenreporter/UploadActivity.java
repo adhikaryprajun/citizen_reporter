@@ -2,10 +2,17 @@ package com.ewaste.citizenreporter;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Build;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,8 +23,15 @@ import com.ewaste.citizenreporter.api.UploadApi;
 import com.ewaste.citizenreporter.api.models.Session;
 
 import java.io.ByteArrayOutputStream;
+import java.util.jar.Manifest;
 
 public class UploadActivity extends AppCompatActivity {
+
+
+    private LocationManager locationManager;
+    private LocationListener locationListener;
+
+    private Location currentLocation;
 
     private ImageView ivUploadImage;
     private EditText etUploadDescription;
@@ -72,6 +86,45 @@ public class UploadActivity extends AppCompatActivity {
             }
         });
 
+        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        locationListener = new LocationListener() {
+            @Override
+            public void onLocationChanged(Location location) {
+                currentLocation = location;
+                Log.d("GPS", "LAT:"+currentLocation.getLatitude());
+                Log.d("GPS", "LONG:"+currentLocation.getLongitude());
+            }
+
+            @Override
+            public void onStatusChanged(String provider, int status, Bundle extras) {
+
+            }
+
+            @Override
+            public void onProviderEnabled(String provider) {
+
+            }
+
+            @Override
+            public void onProviderDisabled(String provider) {
+
+            }
+        };
+
+        if(ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                requestPermissions(new String[] {
+                        android.Manifest.permission.ACCESS_COARSE_LOCATION,
+                        android.Manifest.permission.ACCESS_FINE_LOCATION,
+                        android.Manifest.permission.INTERNET
+                }, 10);
+            }
+            return;
+        } else {
+            locationManager.requestSingleUpdate(LocationManager.GPS_PROVIDER, locationListener, null);
+            locationManager.requestSingleUpdate(LocationManager.NETWORK_PROVIDER, locationListener, null);
+        }
 
     }
 

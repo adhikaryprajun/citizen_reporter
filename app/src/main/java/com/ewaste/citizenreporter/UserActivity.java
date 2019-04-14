@@ -1,6 +1,8 @@
 package com.ewaste.citizenreporter;
 
 import android.content.Intent;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -87,9 +89,9 @@ public class UserActivity extends AppCompatActivity {
             uploadListAdapter = new UploadListAdapter(getApplicationContext(),session, controller.getAllActiveUploads());
             lvUploads.setAdapter(uploadListAdapter);
         } else if(item.getItemId()==R.id.new_upload) {
-            Intent i = new Intent(getApplicationContext(), UploadActivity.class);
-            i.putExtra(KEY_BUNDLE_SESSION, session);
-            startActivity(i);
+            Intent i1 = new Intent(getApplicationContext(), UploadActivity.class);
+            i1.putExtra(KEY_BUNDLE_SESSION, session);
+            startActivity(i1);
         }
         return super.onOptionsItemSelected(item);
     }

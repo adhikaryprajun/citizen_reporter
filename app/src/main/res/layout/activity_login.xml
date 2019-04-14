@@ -1,8 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
 android:layout_height="match_parent"
-android:orientation="vertical" >
+android:orientation="vertical"
+    android:background="#fff">
+
+    <ImageView
+        android:layout_marginTop="16dp"
+        android:id="@+id/imageView"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/i6"
+        android:adjustViewBounds="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:padding="8dp"
+        android:text="We take care of all types of Garbage and Waste handling. Just tag it and we will take care of it for you. You can login and request for garbage collection anytime anywhere." />
+
     <EditText
         android:id="@+id/etUsername"
         android:layout_width="match_parent"
@@ -10,7 +33,9 @@ android:orientation="vertical" >
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="Enter Username"
-        android:text="abc@gmail.com"/>
+        android:text="abc@gmail.com"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"/>
 
     <EditText
         android:id="@+id/etPassword"
@@ -19,12 +44,20 @@ android:orientation="vertical" >
         android:ems="10"
         android:inputType="textPassword"
         android:hint="Enter Password"
-        android:text="123456"/>
+        android:text="123456"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+         />
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="LOGIN"/>
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="#556B2F"
+        android:text="LOGIN"
+        android:textColor="#fff"
+        android:textStyle="bold" />
 
 </LinearLayout>

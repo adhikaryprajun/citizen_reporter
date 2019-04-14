@@ -61,5 +61,10 @@
         android:id="@+id/btnUpload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="UPLOAD" />
+        android:text="UPLOAD"
+
+        android:background="#556B2F"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        />
 </LinearLayout>
